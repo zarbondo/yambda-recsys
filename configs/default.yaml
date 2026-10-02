@@ -1,0 +1,49 @@
+seed: 42
+
+data:
+  size: 50m                  # 50m или 500m
+  raw_dir: data/raw
+  listen_threshold: 50       # listen+ = дослушал хотя бы половину трека, как в протоколе yambda
+  use_artists: true          # фичи по артистам, если маппинг скачается
+
+split:
+  test_days: 1               # тест — последний день, как в протоколе yambda
+  val_days: 1                # день перед тестом — на нём учим ранкер
+  gap_minutes: 30            # зазор между историей и окном таргетов
+
+candidates:
+  als:
+    n: 100
+    factors: 64
+    iterations: 15
+    regularization: 0.05
+    alpha: 20
+    like_weight: 2.0
+    min_item_count: 5        # треки, у которых меньше 5 юзеров, в матрицу не берём
+  i2i:
+    n: 100
+    days: 60                 # переходы считаем по последним 60 дням
+    session_gap_minutes: 30  # переход — только если следующий трек в той же сессии
+    min_count: 2
+    neighbors: 30            # соседей на трек
+    history_len: 20          # от скольких последних треков юзера идём к соседям
+  popular:
+    n: 30
+    days: 7
+
+ranker:
+  iterations: 500
+  learning_rate: 0.05
+  depth: 6
+  task_type: CPU             # в colab с GPU можно поставить GPU
+  val_users_frac: 0.1
+  early_stopping: 50
+
+eval:
+  k: [10, 100]
+
+mlflow:
+  tracking_uri: sqlite:///mlflow.db   # файловый бэкенд в новых mlflow выключен
+  experiment: yambda-two-stage
+
+results_dir: results

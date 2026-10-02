@@ -1,0 +1,52 @@
+# быстрый прогон на синтетике в схеме yambda: проверить, что пайплайн живой
+seed: 42
+
+data:
+  synthetic:
+    users: 300
+    days: 40
+    albums: 300
+  listen_threshold: 50
+  use_artists: true
+
+split:
+  test_days: 1
+  val_days: 1
+  gap_minutes: 30
+
+candidates:
+  als:
+    n: 100
+    factors: 16
+    iterations: 5
+    regularization: 0.05
+    alpha: 20
+    like_weight: 2.0
+    min_item_count: 2
+  i2i:
+    n: 100
+    days: 60
+    session_gap_minutes: 30
+    min_count: 1
+    neighbors: 30
+    history_len: 20
+  popular:
+    n: 30
+    days: 7
+
+ranker:
+  iterations: 100
+  learning_rate: 0.1
+  depth: 4
+  task_type: CPU
+  val_users_frac: 0.2
+  early_stopping: 30
+
+eval:
+  k: [10, 100]
+
+mlflow:
+  tracking_uri: sqlite:///mlflow.db   # файловый бэкенд в новых mlflow выключен
+  experiment: yambda-smoke
+
+results_dir: results_smoke
