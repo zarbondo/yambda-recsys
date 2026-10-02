@@ -1,8 +1,8 @@
 # глобальный временной сплит, как в статье yambda: история / 30 минут зазора / 1 день теста
 import polars as pl
 
-DAY = 24 * 60 * 60 // 5   # timestamp в yambda — в 5-секундных бинах
-MINUTE = 60 // 5
+DAY = 24 * 60 * 60        # timestamp в yambda — в секундах
+MINUTE = 60
 
 
 def make_borders(t_max, cfg):
