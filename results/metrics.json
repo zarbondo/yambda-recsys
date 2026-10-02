@@ -1,0 +1,63 @@
+{
+  "metrics": {
+    "mostpop": {
+      "ndcg@10": 0.014034525510611165,
+      "recall@10": 0.016642562950059597,
+      "ndcg@100": 0.025941790898089907,
+      "recall@100": 0.05721012880063543
+    },
+    "als": {
+      "ndcg@10": 0.013900727940577728,
+      "recall@10": 0.011837183654364364,
+      "ndcg@100": 0.030265299767070503,
+      "recall@100": 0.06667150655312075
+    },
+    "i2i": {
+      "ndcg@10": 0.009991883981331082,
+      "recall@10": 0.009760793741930734,
+      "ndcg@100": 0.021508866649975197,
+      "recall@100": 0.04862988316038997
+    },
+    "ranker": {
+      "ndcg@10": 0.043834931643075885,
+      "recall@10": 0.03800606343388146,
+      "ndcg@100": 0.06137753372512254,
+      "recall@100": 0.10617022652499143
+    }
+  },
+  "candidate_pool": {
+    "recall": 0.12774509174486523,
+    "avg_size": 202.55067264573992
+  },
+  "ndcg@10_gain_vs_als": 2.1534270601122247,
+  "n_test_users": 3345,
+  "features": [
+    "als_rank",
+    "i2i_score",
+    "i2i_rank",
+    "pop_rank",
+    "n_sources",
+    "als_score",
+    "item_listens",
+    "item_plus",
+    "item_users",
+    "item_plus_7d",
+    "item_plus_1d",
+    "item_organic_share",
+    "track_len",
+    "item_likes",
+    "item_skip_rate",
+    "item_trend",
+    "item_like_rate",
+    "item_age_days",
+    "user_listens",
+    "user_plus_rate",
+    "user_items",
+    "user_listens_7d",
+    "user_organic_share",
+    "user_days_inactive",
+    "user_likes",
+    "artist_cnt",
+    "artist_share"
+  ]
+}
