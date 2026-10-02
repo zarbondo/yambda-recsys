@@ -1,0 +1,12 @@
+data/
+mlruns/
+mlartifacts/
+mlflow.db
+results_smoke/
+results/catboost_info/
+results/ranker.cbm
+catboost_info/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/

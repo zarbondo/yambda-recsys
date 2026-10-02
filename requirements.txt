@@ -1,0 +1,11 @@
+polars>=1.0
+numpy
+scipy
+implicit>=0.7.2
+catboost>=1.2
+mlflow>=2.10
+huggingface_hub
+threadpoolctl
+pyyaml
+matplotlib
+pytest
